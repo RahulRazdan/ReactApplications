@@ -4,14 +4,27 @@ import Persons from '../components/Persons/Persons'
 import Cockpit from '../components/Cockpit/Cockpit'
 
 class App extends Component {
-  state = {
-    persons : [
-      {id : 1 ,name:'Mukesh'},
-      {id : 2 ,name:'Razdan'}
-    ],
-    showPersons : false
+
+  constructor(props){
+    super(props);
+    console.log('Inside App.js constructor');
+    this.state = {
+      persons : [
+        {id : 1 ,name:'Mukesh'},
+        {id : 2 ,name:'Razdan'}
+      ],
+      showPersons : false
+    }
   }
 
+  componentWillMount(){
+    console.log('Inside componentWillMount of App.js')
+  }
+
+  componentDidMount(){
+    console.log('inside componentDidMount method of app class.');
+  }
+  
   switchNameHandler = (newName) => {
     // alert('clicked!!');
     this.setState(
@@ -52,7 +65,8 @@ class App extends Component {
   }
 
 
-  render() {
+  render() {  
+    console.log('Inside render method of app class');
 
     return (
       <div className={classes.App}>
